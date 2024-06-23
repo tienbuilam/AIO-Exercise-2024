@@ -77,8 +77,16 @@ class Doctor(Person):
             f"Doctor - Name: {self.__name} - YOB: {self.__yob} - Specialist: {self.__specialist}")
 
 
-student1 = Student(name="studentZ2023", yob=2011, grade="6")
-student1.describe()
+ward = Ward("Ward1")
+ward.add_person(Student(name="studentA", yob=2010, grade="7"))
+ward.add_person(Teacher(name="teacherA", yob=1969, subject="Math"))
+ward.add_person(Teacher(name="teacherB", yob=1995, subject="History"))
+ward.add_person(Doctor(name="doctorB", yob=1975, specialist="Cardiologists"))
+ward.add_person(Doctor(name="doctorA", yob=1945,
+                specialist="Endocrinologists"))
 
-teacher1 = Teacher(name=" teacherZ2023 ", yob=1991, subject=" History ")
-teacher1.describe()
+ward.sort_age()
+ward.describe()
+
+print(f"Số lượng bác sĩ trong Ward: {ward.count_doctor()}")
+print(f"Tuổi trung bình của giáo viên trong Ward: {ward.compute_average()}")
